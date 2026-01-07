@@ -68,8 +68,8 @@
 }
 /* Page margins: center content with 30% left/right margins on large screens */
 .markdown-body {
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 @media (max-width: 900px) {
   .markdown-body {
