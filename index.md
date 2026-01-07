@@ -1,9 +1,34 @@
 ![bg.gif](files/bg.gif)
 
+<!-- Anchor.js icon and toggle: set window.SITE_ANCHORS_ENABLED = false to disable anchors -->
 <style>
-/* Hide visible "Anchor" text inserted by anchor-js while keeping the link accessible */
-.anchorjs-link { overflow: hidden; display:inline-block; width:1rem; height:1rem; text-indent:-9999px; }
+/* Show a small link icon for anchor-js links while keeping the link text accessible to screen readers */
+.anchorjs-link { display:inline-block; width:1rem; height:1rem; vertical-align:middle; }
+.anchorjs-link::before {
+  content: "🔗"; /* small unicode link icon; replace with SVG if desired */
+  display:inline-block;
+  width:1rem; height:1rem; line-height:1rem; text-align:center;
+}
+.anchorjs-link span {
+  /* keep the original text available to screen readers but visually hidden */
+  position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;
+}
 </style>
+
+<script>
+// Toggle: set to false to disable anchor icons/links entirely
+window.SITE_ANCHORS_ENABLED = window.SITE_ANCHORS_ENABLED !== undefined ? window.SITE_ANCHORS_ENABLED : true;
+
+document.addEventListener('DOMContentLoaded', function(){
+  if (window.anchors && typeof anchors.add === 'function') {
+    // remove any existing anchors then re-add with our icon, or skip adding if disabled
+    try { anchors.remove(); } catch(e){}
+    if (window.SITE_ANCHORS_ENABLED) {
+      anchors.add({ icon: '🔗' });
+    }
+  }
+});
+</script>
 
 # ひらとものフリーソフト
 
