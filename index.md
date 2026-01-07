@@ -15,7 +15,7 @@
 }
 
 /* Hide the theme's top site title ("app") while keeping page headings visible */
-.markdown-body > h1:first-of-type { display: none; }
+/* .markdown-body > h1:first-of-type { display: none; } */
 
 /* If you prefer to remove it entirely from the layout, remove the include or modify theme */
 </style>
