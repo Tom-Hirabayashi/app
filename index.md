@@ -136,4 +136,6 @@ window.SITE_ANCHORS_ENABLED = window.SITE_ANCHORS_ENABLED !== undefined ? window
 
 ---
 
-$\footnotesize\textit {© 2025 Tomoyuki.Hirabayashi All right reserved.}$
+<footer style="text-align:center; margin-top:1.5rem; color:#666; font-size:0.95rem;">
+  © 2026 Tomoyuki Hirabayashi. All rights reserved.
+</footer>
