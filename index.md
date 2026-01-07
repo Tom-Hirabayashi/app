@@ -50,13 +50,17 @@ window.SITE_ANCHORS_ENABLED = window.SITE_ANCHORS_ENABLED !== undefined ? window
 
 ちょっとしたプログラムばかりですが、何かのお役に立てたら、嬉しいです。
 
-![title.gif](files/title.gif)
-
-# 古典の学習
-
-[Kastuyo Quest](https://www.notion.so/Kastuyo-Quest-27587c048b1b804aac6df232b63000ef?pvs=21)
-
-用言の活用が覚えられなくて、困っている高校生のために、ゲーム形式で動詞・形容詞の活用をトレーニングします。上のリンクから紹介ページに行きます。インストール不要のWebアプリです。
+<!-- Hero: title image on left, text on right (two-column) -->
+<div class="hero-grid">
+  <div class="hero-image">
+    <img src="files/title.gif" alt="title.gif" />
+  </div>
+  <div class="hero-text">
+    <h1>古典の学習</h1>
+    <p><a href="https://www.notion.so/Kastuyo-Quest-27587c048b1b804aac6df232b63000ef?pvs=21">Kastuyo Quest</a></p>
+    <p>用言の活用が覚えられなくて、困っている高校生のために、ゲーム形式で動詞・形容詞の活用をトレーニングします。上のリンクから紹介ページに行きます。インストール不要のWebアプリです。</p>
+  </div>
+</div>
 
 # 校務に便利なアプリ
 

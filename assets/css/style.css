@@ -4,3 +4,33 @@
 .markdown-body > h1:first-of-type { display: none !important; }
 
 /* Small additional tweaks can go here */
+
+/* Make first image (bg.gif) full-bleed across the viewport */
+.markdown-body > p:first-of-type img {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(-50vw + 50%);
+  display: block;
+  object-fit: cover;
+}
+
+/* Make images responsive */
+.markdown-body img { max-width: 100%; height: auto; }
+
+/* Hero grid: two-column layout for title.gif and text */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin: 1.2rem 0 1.8rem 0;
+}
+.hero-grid .hero-image img { width: 100%; height: auto; display: block; }
+.hero-grid .hero-text h1 { margin-top: 0; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 720px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid .hero-image { order: -1; }
+}
+
