@@ -19,15 +19,22 @@
 // Toggle: set to false to disable anchor icons/links entirely
 window.SITE_ANCHORS_ENABLED = window.SITE_ANCHORS_ENABLED !== undefined ? window.SITE_ANCHORS_ENABLED : true;
 
-document.addEventListener('DOMContentLoaded', function(){
-  if (window.anchors && typeof anchors.add === 'function') {
-    // remove any existing anchors then re-add with our icon, or skip adding if disabled
-    try { anchors.remove(); } catch(e){}
-    if (window.SITE_ANCHORS_ENABLED) {
-      anchors.add({ icon: '🔗' });
+// Poll for anchor-js to be available (covers cases where theme adds anchors.add() later)
+(function waitForAnchors(){
+  var tries = 0;
+  var t = setInterval(function(){
+    tries++;
+    if (window.anchors && typeof anchors.add === 'function'){
+      try { anchors.remove(); } catch(e){}
+      if (window.SITE_ANCHORS_ENABLED) {
+        try { anchors.add({ icon: '🔗' }); } catch(e){}
+      }
+      clearInterval(t);
+    } else if (tries > 50) { // timeout after ~5s
+      clearInterval(t);
     }
-  }
-});
+  }, 100);
+})();
 </script>
 
 # ひらとものフリーソフト
