@@ -13,6 +13,11 @@
   /* keep the original text available to screen readers but visually hidden */
   position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;
 }
+
+/* Hide the theme's top site title ("app") while keeping page headings visible */
+.markdown-body > h1:first-of-type { display: none; }
+
+/* If you prefer to remove it entirely from the layout, remove the include or modify theme */
 </style>
 
 <script>
