@@ -37,11 +37,12 @@
 
 /* Header hero: title.gif placed on the right of the intro */
 .header-hero { display: grid; grid-template-columns: 1fr 150px; gap: 1rem; align-items: start; margin-bottom: 1.2rem; }
-.header-hero .header-image img { width: 100%; display: block; }
+.header-hero .header-image img { width: 100%; max-width: 150px; display: block; }
 .header-hero .header-text p { margin: 0 0 0.85rem 0; }
 @media (max-width: 900px) {
   .header-hero { grid-template-columns: 1fr; }
-  .header-hero .header-image { order: -1; }
+  .header-hero .header-image { order: -1; display:flex; justify-content:center; }
+  .header-hero .header-image img { width: 150px; max-width: 150px; }
 }
 
 /* Tweak overall spacing and make the title.gif act as a left column (works even if raw HTML is present) */
@@ -62,8 +63,8 @@
   .markdown-body > p img[src$="/title.gif"],
   .markdown-body > p img[src$="title.gif"] {
     float: none;
-    width: 100%;
-    margin: 0 0 1rem 0;
+    width: 130px; /* keep small on mobile */
+    margin: 0 auto 1rem; /* center */
   }
 }
 /* Page margins: center content with 30% left/right margins on large screens */
