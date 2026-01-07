@@ -1,0 +1,6 @@
+/* Custom overrides for site appearance */
+
+/* Hide the theme's top site title ("app") */
+.markdown-body > h1:first-of-type { display: none !important; }
+
+/* Small additional tweaks can go here */
