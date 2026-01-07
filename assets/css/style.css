@@ -34,6 +34,15 @@
   .hero-grid .hero-image { order: -1; }
 }
 
+/* Header hero: title.gif placed on the right of the intro */
+.header-hero { display: grid; grid-template-columns: 1fr 300px; gap: 1rem; align-items: start; margin-bottom: 1.2rem; }
+.header-hero .header-image img { width: 100%; display: block; }
+.header-hero .header-text p { margin: 0 0 0.85rem 0; }
+@media (max-width: 900px) {
+  .header-hero { grid-template-columns: 1fr; }
+  .header-hero .header-image { order: -1; }
+}
+
 /* Tweak overall spacing and make the title.gif act as a left column (works even if raw HTML is present) */
 .markdown-body p { margin-bottom: 1rem; line-height: 1.7; }
 .markdown-body h1, .markdown-body h2, .markdown-body h3 { margin-top: 1.2rem; margin-bottom: 0.6rem; }

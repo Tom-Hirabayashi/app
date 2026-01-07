@@ -44,23 +44,24 @@ window.SITE_ANCHORS_ENABLED = window.SITE_ANCHORS_ENABLED !== undefined ? window
 
 # ひらとものフリーソフト
 
-20年以上にわたってniftyのホームページで紹介してきた、自作アプリですが、今回niftyのホームページサービスが改編、私の使ってきたサービスもなくなってしまいますので、こちらで、引き続き紹介させていただきます。
+<div class="header-hero">
+  <div class="header-text">
+    <p>20年以上にわたってniftyのホームページで紹介してきた、自作アプリですが、今回niftyのホームページサービスが改編、私の使ってきたサービスもなくなってしまいますので、こちらで、引き続き紹介させていただきます。</p>
 
-プログラミングは、小学生の頃のファミリーベーシックから始め、CASIOのポケットコンピュータ、Borland Delphi、一太郎マクロ、Excel VBA、携帯電話のimode用のC言語などを勉強してきました。最近では統計用のR言語や、教科「情報」のティーチングアシスタントに入ったことをきっかけに、pythonも使うようになりました。Katsuyo Questは元はpythonで書きましたが、Webで動くようにJavaScriptに移植しています。
+    <p>プログラミングは、小学生の頃のファミリーベーシックから始め、CASIOのポケットコンピュータ、Borland Delphi、一太郎マクロ、Excel VBA、携帯電話のimode用のC言語などを勉強してきました。最近では統計用のR言語や、教科「情報」のティーチングアシスタントに入ったことをきっかけに、pythonも使うようになりました。Katsuyo Questは元はpythonで書きましたが、Webで動くようにJavaScriptに移植しています。</p>
 
-ちょっとしたプログラムばかりですが、何かのお役に立てたら、嬉しいです。
-
-<!-- Hero: title image on left, text on right (two-column) -->
-<div class="hero-grid">
-  <div class="hero-image">
+    <p>ちょっとしたプログラムばかりですが、何かのお役に立てたら、嬉しいです。</p>
+  </div>
+  <div class="header-image">
     <img src="files/title.gif" alt="title.gif" />
   </div>
-  <div class="hero-text">
-    <h1>古典の学習</h1>
-    <p><a href="https://www.notion.so/Kastuyo-Quest-27587c048b1b804aac6df232b63000ef?pvs=21">Kastuyo Quest</a></p>
-    <p>用言の活用が覚えられなくて、困っている高校生のために、ゲーム形式で動詞・形容詞の活用をトレーニングします。上のリンクから紹介ページに行きます。インストール不要のWebアプリです。</p>
-  </div>
 </div>
+
+# 古典の学習
+
+[Kastuyo Quest](https://www.notion.so/Kastuyo-Quest-27587c048b1b804aac6df232b63000ef?pvs=21)
+
+用言の活用が覚えられなくて、困っている高校生のために、ゲーム形式で動詞・形容詞の活用をトレーニングします。上のリンクから紹介ページに行きます。インストール不要のWebアプリです.
 
 # 校務に便利なアプリ
 
