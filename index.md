@@ -1,5 +1,10 @@
 ![bg.gif](files/bg.gif)
 
+<style>
+/* Hide visible "Anchor" text inserted by anchor-js while keeping the link accessible */
+.anchorjs-link { overflow: hidden; display:inline-block; width:1rem; height:1rem; text-indent:-9999px; }
+</style>
+
 # ひらとものフリーソフト
 
 20年以上にわたってniftyのホームページで紹介してきた、自作アプリですが、今回niftyのホームページサービスが改編、私の使ってきたサービスもなくなってしまいますので、こちらで、引き続き紹介させていただきます。
