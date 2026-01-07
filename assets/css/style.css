@@ -34,3 +34,27 @@
   .hero-grid .hero-image { order: -1; }
 }
 
+/* Tweak overall spacing and make the title.gif act as a left column (works even if raw HTML is present) */
+.markdown-body p { margin-bottom: 1rem; line-height: 1.7; }
+.markdown-body h1, .markdown-body h2, .markdown-body h3 { margin-top: 1.2rem; margin-bottom: 0.6rem; }
+
+/* Float title image to left to visually create a two-column layout */
+.markdown-body > p img[alt="title.gif"],
+.markdown-body > p img[src$="/title.gif"],
+.markdown-body > p img[src$="title.gif"] {
+  float: left;
+  width: 260px;
+  margin: 0 1rem 0.8rem 0;
+  display: block;
+}
+@media (max-width: 720px) {
+  .markdown-body > p img[alt="title.gif"],
+  .markdown-body > p img[src$="/title.gif"],
+  .markdown-body > p img[src$="title.gif"] {
+    float: none;
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+}
+
+
