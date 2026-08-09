@@ -68,9 +68,7 @@ window.SITE_ANCHORS_ENABLED = window.SITE_ANCHORS_ENABLED !== undefined ? window
 漢文の句形を覚えるためのトレーニングソフトです。
 https://kukeitrainer.netlify.app/?csv=【ネット上にあるcsvファイル】
 を指定すると、自分で中身が入れ替えられます。
-再読文字を覚えるcsvのサンプルを含んだリンクが
-https://kukeitrainer.netlify.app/?csv=https://raw.githubusercontent.com/Tom-Hirabayashi/KukeiData/main/saidoku26.csv
-になります！
+再読文字を覚えるcsvのサンプルを含んだリンクが[こちら](https://kukeitrainer.netlify.app/?csv=https://raw.githubusercontent.com/Tom-Hirabayashi/KukeiData/main/saidoku26.csv)になります！
 
 # 校務に便利なアプリ
 
