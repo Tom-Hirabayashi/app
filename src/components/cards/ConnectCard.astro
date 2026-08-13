@@ -4,11 +4,13 @@ import ConnectIcon, { type ConnectLink } from './ConnectIcon.astro';
 const { links } = Astro.props as { links: ConnectLink[] };
 ---
 
-<article class="connect-card" data-connect-card>
-  <div class="connect-list" aria-label="Connect links">
-    {links.map((item) => <ConnectIcon item={item} />)}
-  </div>
-</article>
+{links.length > 0 && (
+  <article class="connect-card" data-connect-card>
+    <div class="connect-list" aria-label="Connect links">
+      {links.map((item) => <ConnectIcon item={item} />)}
+    </div>
+  </article>
+)}
 
 <script>
   type ConnectCopyWindow = Window & {

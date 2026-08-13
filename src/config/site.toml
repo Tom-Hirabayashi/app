@@ -159,6 +159,7 @@ label = "About"
 href = "/about"
 
 [config.home]
+links = []
 
 [config.home.quote]
 text = [
@@ -201,72 +202,6 @@ title = "Vectorの作者ページ"
 subtitle = "Vectorでの公開ソフト"
 href = "https://www.vector.co.jp/vpack/browse/person/an036268.html"
 
-
-[[config.home.links]]
-label = "GitHub"
-icon = "github"
-tooltip = "https://github.com/Tom-Hirabayashi"
-copy = false
-
-[[config.home.links]]
-label = "LinkedIn"
-icon = "linkedin"
-tooltip = ""
-copy = false
-
-[[config.home.links]]
-label = "X"
-icon = "x"
-tooltip = ""
-copy = false
-
-[[config.home.links]]
-label = "RSS"
-icon = "rss"
-tooltip = "/rss.xml"
-copy = false
-
-[[config.home.links]]
-label = "Email"
-icon = "mail"
-tooltip = ""
-copy = true
-
-[[config.home.links]]
-label = "QQ"
-icon = "qq"
-tooltip = ""
-copy = true
-
-[[config.home.links]]
-label = "WeChat"
-icon = "wechat"
-tooltip = ""
-copy = true
-
-[[config.home.links]]
-label = "Weibo"
-icon = "weibo"
-tooltip = ""
-copy = false
-
-[[config.home.links]]
-label = "Xiaohongshu"
-icon = "xiaohongshu"
-tooltip = ""
-copy = false
-
-[[config.home.links]]
-label = "Zhihu"
-icon = "zhihu"
-tooltip = ""
-copy = false
-
-[[config.home.links]]
-label = "Bilibili"
-icon = "bilibili"
-tooltip = ""
-copy = false
 
 [[config.home.doing]]
 text = "AIに訓点の付け方を丁寧に教えながら、白文と返り点だけで訓点付きの漢文を出力させるロジックを出力させました。人間に教える方がラクです。→Project 訓点工房"
