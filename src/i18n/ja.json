@@ -12,7 +12,7 @@
     "openLatestPost": "最新の記事を開く: {title}",
     "less": "少",
     "more": "多",
-    "weekdays": ["月", "水", "金"],
+    "weekdays": ["月", "水", "金", "日"],
     "writingSince": "{date} 以降の執筆状況",
     "recentWeeks": "直近 {weeks} 週間の執筆状況",
     "upcoming": "公開予定",

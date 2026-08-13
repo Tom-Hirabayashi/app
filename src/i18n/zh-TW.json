@@ -12,7 +12,7 @@
     "openLatestPost": "開啟最新文章：{title}",
     "less": "少",
     "more": "多",
-    "weekdays": ["週一", "週三", "週五"],
+    "weekdays": ["週一", "週三", "週五", "週日"],
     "writingSince": "自 {date} 起的寫作活動",
     "recentWeeks": "最近 {weeks} 週寫作活動",
     "upcoming": "未來",

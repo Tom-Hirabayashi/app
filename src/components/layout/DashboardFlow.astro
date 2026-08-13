@@ -73,12 +73,38 @@
 
   @media (max-width: 920px) {
     .flow-grid {
-      grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 26px;
     }
 
+    .main-column,
     .side-column {
-      grid-template-columns: 1fr;
+      display: contents;
+    }
+
+    .flow-grid :global(.intro-card) {
+      order: 1;
+    }
+
+    .flow-grid :global(.profile-card) {
+      order: 2;
+    }
+
+    .flow-grid :global(.connect-card) {
+      order: 3;
+    }
+
+    .flow-grid :global(.heatmap-card) {
+      order: 4;
+    }
+
+    .flow-grid :global(.nav-card) {
+      order: 5;
+    }
+
+    .flow-grid :global(.doing-card) {
+      order: 6;
     }
   }
 
@@ -88,42 +114,20 @@
     }
 
     .flow-grid {
-      display: flex;
-      flex-direction: column;
       gap: 24px;
     }
 
-    .main-column,
-    .side-column {
-      display: contents;
-    }
-
     .flow-grid :global(.intro-card) {
-      order: 5;
       min-height: auto;
       padding: 0;
     }
 
-    .flow-grid :global(.profile-card) {
-      order: 1;
-    }
-
-    .flow-grid :global(.nav-card) {
-      order: 3;
-    }
-
     .flow-grid :global(.connect-card) {
-      order: 2;
       margin-block: -18px -10px;
     }
 
     .flow-grid :global(.heatmap-card) {
-      order: 4;
       margin-top: -8px;
-    }
-
-    .flow-grid :global(.doing-card) {
-      order: 6;
     }
   }
 </style>

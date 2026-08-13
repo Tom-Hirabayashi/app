@@ -12,7 +12,7 @@
     "openLatestPost": "Open latest post: {title}",
     "less": "Less",
     "more": "More",
-    "weekdays": ["Mon", "Wed", "Fri"],
+    "weekdays": ["Mon", "Wed", "Fri", "Sun"],
     "writingSince": "Writing activity since {date}",
     "recentWeeks": "Recent {weeks} weeks writing activity",
     "upcoming": "upcoming",
