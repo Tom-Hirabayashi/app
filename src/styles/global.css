@@ -1,2 +1,51 @@
 @import './fonts.css';
 @import 'katex/dist/katex.min.css';
+
+/*
+  Font override notes:
+  - The default theme CSS defines the font variables in
+    node_modules/@navfolio/theme-default/src/styles/global.css.
+  - Those variables are currently set to ChillRoundM / embedded font values.
+  - If you want to use the system Japanese font instead, uncomment the block below.
+  - To restore the original behavior later, comment this block out again.
+*/
+
+:root {
+  --font-config-en: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-config-code: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-config-zh: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-config-zh-subset: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-cjk-system: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-ui-cjk: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-serif-cn: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-mono: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-body: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-display: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-note: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-article: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-heading: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-page-heading: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-meta: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-code: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  --font-ui-label: 'Hiragino Maru Gothic ProN', 'Yu Maru', 'Meiryo', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/*
+  Optional: adjust the overall spacing for a slightly more relaxed Japanese reading feel.
+  Remove this rule to restore the original spacing.
+*/
+body {
+  letter-spacing: 0.01em;
+}
+
+/*
+  The next block is intentionally left as a reference for restoring the original theme.
+  To restore the original font, comment out the :root block above and keep this note.
+*/
+
+/*
+  Alternative: if you want to use a bundled font file instead of the system font,
+  edit src/config/site.toml and set file = "/fonts/your-font.ttf".
+  This block is intentionally left commented out so the original theme remains active.
+*/

@@ -295,3 +295,8 @@ Navfolio 希望呈现为一个安静的开发者笔记本：
 - 长文阅读区域不被视觉噪音打扰。
 
 如果这个 starter 对你有帮助，欢迎在仓库点一个 star：<https://github.com/dodolalorc/astro-navfolio>。
+
+## 许可与致谢
+
+本项目基于 astro-navfolio，遵循 MIT License。
+发布或再分发时，请保留仓库中的 LICENSE 文件及其中的版权声明。

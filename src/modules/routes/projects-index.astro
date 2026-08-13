@@ -49,6 +49,12 @@ const projectIndexPage = {
 const relatedProjects = projects;
 const projectsRoute = getPageModuleRoute(navfolioConfig, 'projects');
 const i18n = getI18n(siteConfig);
+const genreOrder = [
+  '古典の学習',
+  '校務に便利なアプリ',
+  '国語教員のための一太郎マクロ',
+  '図書館管理システム',
+] as const;
 
 const projectIcons = {
   github: Github,
@@ -74,6 +80,25 @@ function withBase(href: string) {
 
   return `${basePath}${href.startsWith('/') ? href : `/${href}`}`;
 }
+
+const groupedProjects = genreOrder
+  .map((genre) => ({
+    genre,
+    items: relatedProjects.filter((project) => project.data.categories?.[0] === genre),
+  }))
+  .filter((group) => group.items.length > 0);
+
+const uncategorizedProjects = relatedProjects.filter((project) => {
+  const category = project.data.categories?.[0];
+  return !category || !genreOrder.includes(category as (typeof genreOrder)[number]);
+});
+
+if (uncategorizedProjects.length > 0) {
+  groupedProjects.push({
+    genre: 'その他',
+    items: uncategorizedProjects,
+  });
+}
 ---
 
 <BlogArticle
@@ -89,67 +114,74 @@ function withBase(href: string) {
 
   {
     relatedProjects.length > 0 ? (
-      <section class="project-grid" aria-label={i18n.t('projects.listLabel')}>
-        {relatedProjects.map((project) => {
-          const ProjectIcon = projectIcons[project.data.icon] ?? Github;
-          const projectHref = withBase(`${projectsRoute}/${project.id}/`);
+      <section class="project-sections" aria-label={i18n.t('projects.listLabel')}>
+        {groupedProjects.map((group) => (
+          <section class="project-section">
+            <h2 class="project-section-title">{group.genre}</h2>
+            <div class="project-grid">
+              {group.items.map((project) => {
+                const ProjectIcon = projectIcons[project.data.icon] ?? Github;
+                const projectHref = withBase(`${projectsRoute}/${project.id}/`);
 
-          return (
-            <article
-              class="project-card"
-              style={
-                project.data.iconColor
-                  ? `--project-icon-color: ${project.data.iconColor}`
-                  : undefined
-              }
-            >
-              <div class="project-card-heading">
-                <ProjectIcon class="project-icon" size={22} strokeWidth={1.55} aria-hidden="true" />
-                <h2>
-                  <a href={projectHref}>{project.data.title}</a>
-                </h2>
-              </div>
-              <p>{project.data.description}</p>
-              <footer class="project-card-footer">
-                <span class="project-meta">
-                  <FormattedDate date={project.data.date} />
-                </span>
-                {project.data.authors.length > 0 && (
-                  <span class="project-authors" aria-label={i18n.t('projects.authorsLabel')}>
-                    {project.data.authors.map((author) =>
-                      author.url ? (
-                        <a href={author.url}>{author.name}</a>
-                      ) : (
-                        <span>{author.name}</span>
-                      ),
-                    )}
-                  </span>
-                )}
-                {project.data.links.length > 0 && (
-                  <span class="project-links" aria-label={i18n.t('projects.linksLabel')}>
-                    {project.data.links.map((link) => (
-                      <a href={link.href} target="_blank" rel="noopener noreferrer">
-                        {link.kind === 'github' ? (
-                          <Github size={13} strokeWidth={1.8} aria-hidden="true" />
-                        ) : (
-                          <ExternalLink size={13} strokeWidth={1.8} aria-hidden="true" />
-                        )}
-                        {link.label}
-                      </a>
-                    ))}
-                  </span>
-                )}
-                {project.data.tags.length > 0 && (
-                  <span class="project-tags" aria-label={i18n.t('projects.tagsLabel')}>
-                    {project.data.tags.slice(0, 3).map((tag) => (
-                      <small>{tag}</small>
-                    ))}
-                  </span>
-                )}
-              </footer>
-            </article>
-          );
-        })}
+                return (
+                  <article
+                    class="project-card"
+                    style={
+                      project.data.iconColor
+                        ? `--project-icon-color: ${project.data.iconColor}`
+                        : undefined
+                    }
+                  >
+                    <div class="project-card-heading">
+                      <ProjectIcon class="project-icon" size={22} strokeWidth={1.55} aria-hidden="true" />
+                      <h3>
+                        <a href={projectHref}>{project.data.title}</a>
+                      </h3>
+                    </div>
+                    <p>{project.data.description}</p>
+                    <footer class="project-card-footer">
+                      <span class="project-meta">
+                        <FormattedDate date={project.data.date} />
+                      </span>
+                      {project.data.authors.length > 0 && (
+                        <span class="project-authors" aria-label={i18n.t('projects.authorsLabel')}>
+                          {project.data.authors.map((author) =>
+                            author.url ? (
+                              <a href={author.url}>{author.name}</a>
+                            ) : (
+                              <span>{author.name}</span>
+                            ),
+                          )}
+                        </span>
+                      )}
+                      {project.data.links.length > 0 && (
+                        <span class="project-links" aria-label={i18n.t('projects.linksLabel')}>
+                          {project.data.links.map((link) => (
+                            <a href={link.href} target="_blank" rel="noopener noreferrer">
+                              {link.kind === 'github' ? (
+                                <Github size={13} strokeWidth={1.8} aria-hidden="true" />
+                              ) : (
+                                <ExternalLink size={13} strokeWidth={1.8} aria-hidden="true" />
+                              )}
+                              {link.label}
+                            </a>
+                          ))}
+                        </span>
+                      )}
+                      {project.data.tags.length > 0 && (
+                        <span class="project-tags" aria-label={i18n.t('projects.tagsLabel')}>
+                          {project.data.tags.slice(0, 3).map((tag) => (
+                            <small>{tag}</small>
+                          ))}
+                        </span>
+                      )}
+                    </footer>
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ))}
       </section>
     ) : (
       <section class="project-empty" aria-label={i18n.t('projects.emptyLabel')}>
@@ -181,7 +213,26 @@ function withBase(href: string) {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(12px, 2vw, 22px);
+    margin-top: 18px;
+  }
+
+  .project-sections {
+    display: grid;
+    gap: 30px;
     margin-top: 34px;
+  }
+
+  .project-section {
+    display: grid;
+    gap: 0;
+  }
+
+  .project-section-title {
+    margin: 0;
+    color: var(--paper-ink);
+    font-family: var(--font-ui-label);
+    font-size: 1.18rem;
+    line-height: 1.35;
   }
 
   .project-card {
@@ -220,7 +271,7 @@ function withBase(href: string) {
     letter-spacing: 0.08em;
   }
 
-  .project-card h2,
+  .project-card h3,
   .project-empty h2 {
     margin: 0;
     color: var(--paper-ink);
@@ -229,7 +280,7 @@ function withBase(href: string) {
     line-height: 1.28;
   }
 
-  .project-card h2 a {
+  .project-card h3 a {
     color: inherit;
     display: -webkit-box;
     overflow: hidden;
@@ -237,7 +288,7 @@ function withBase(href: string) {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
-  .project-card h2 a:hover {
+  .project-card h3 a:hover {
     color: var(--paper-accent);
   }
 

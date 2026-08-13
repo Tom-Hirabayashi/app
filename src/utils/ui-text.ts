@@ -3,6 +3,7 @@ import { createI18n, normalizeLocale, type I18nMessages } from '@navfolio/core';
 import { getResolvedPageModuleI18n } from '@navfolio/pages';
 import navfolioConfig from '../../navfolio.config';
 import en from '../i18n/en.json';
+import ja from '../i18n/ja.json';
 import zhCN from '../i18n/zh-CN.json';
 import zhTW from '../i18n/zh-TW.json';
 
@@ -10,6 +11,7 @@ export const defaultUiLanguage = 'en';
 
 const rawUiText = {
   en,
+  ja,
   'zh-CN': zhCN,
   'zh-TW': zhTW,
 } as const;
@@ -229,6 +231,12 @@ const uiText = Object.fromEntries(
 ) as Record<UiLanguage, UiText>;
 
 export function normalizeUiLanguage(value: string | undefined): UiLanguage {
+  const normalized = value?.trim();
+
+  if (normalized && normalized in rawUiText) {
+    return normalized as UiLanguage;
+  }
+
   return normalizeLocale(value, defaultUiLanguage) as UiLanguage;
 }
 
@@ -241,12 +249,24 @@ export function getUiText(config: SiteConfig): UiText {
 }
 
 export function getI18n(config: SiteConfig) {
+  const locale = getUiLanguage(config);
+  const catalogs =
+    locale === 'ja'
+      ? [
+          {
+            ...rawUiText,
+            en: rawUiText.ja,
+          } as unknown as Record<string, I18nMessages>,
+          ...getResolvedPageModuleI18n(navfolioConfig).map((contribution) => contribution.messages),
+        ]
+      : [
+          rawUiText as unknown as Record<string, I18nMessages>,
+          ...getResolvedPageModuleI18n(navfolioConfig).map((contribution) => contribution.messages),
+        ];
+
   return createI18n({
-    locale: getUiLanguage(config),
-    catalogs: [
-      rawUiText as unknown as Record<string, I18nMessages>,
-      ...getResolvedPageModuleI18n(navfolioConfig).map((contribution) => contribution.messages),
-    ],
+    locale: locale === 'ja' ? 'en' : locale,
+    catalogs,
   });
 }
 

@@ -1,27 +1,34 @@
 [config.site]
-title = "navfolio"
-description = "A personal navigation portfolio starter built with Astro."
-pageTitle = "navfolio | Digital Publication Space"
-pageDescription = "A calm AI-native personal publication space for notes, links, and writing."
+title = "ひらともWEB"
+description = "国語や学校で役立つフリーソフト"
+pageTitle = "ひらともWEB"
+pageDescription = "国語や学校で役立つフリーソフト"
 url = "https://astro.navfolio.site"
 repository = "https://github.com/dodolalorc/astro-navfolio"
-footerNote = "Released as an open-source starter."
+footerNote = "powered by Astro navfolio"
 
 [config.theme]
 # 可用色盘：
 # green-soft, green-vivid, rose-soft, pink-soft, purple-soft, blue-soft, orange-soft, brown-soft
-palette = "green-soft"
-# 原生 UI 语言。可用值：en、zh-CN、zh-TW。未知值会回退到 en。
-lang = "en"
+palette = "orange-soft"
+# 原生 UI 语言。可用值：en、ja、zh-CN、zh-TW。未知值会回退到 en。
+lang = "ja"
 
 [config.fonts]
-# 英文与代码感 UI 字体
+# 英文とコード用の UI フォント
+# 例: Maple Mono, Georgia, serif など
 en = "Maple Mono"
 code = "Monaco"
-# 模板内可直接选择：ChillRoundM、LXGW WenKai
-# 中文阅读字体
-zh = "ChillRoundM"
-# 中文完整字体文件
+
+# 日本語本文はシステムフォントを優先して使う設定。
+# 例: "Hiragino Maru Gothic ProN, Yu Maru, Meiryo, sans-serif"
+# ここでカンマ区切りのフォント候補を 1 つの文字列として書く。
+zh = "Hiragino Maru Gothic ProN, Yu Maru, Meiryo, sans-serif"
+
+# フォントファイルを使うやり方もある。
+# 例: file = "/fonts/NotoSansJP-Regular.ttf"
+# こうすると、ブラウザが埋め込みフォントを優先して使うことがある。
+# 今はシステムフォント優先なので、ここは既存のファイルを残しておく。
 file = "/fonts/ChillRoundM.ttf"
 
 [config.code]
@@ -47,10 +54,10 @@ placeholder = "Search notes..."
 maxResults = 6
 
 [config.pages.blog]
-title = "Writing notes"
+title = "Blog"
 kicker = "Notebook archive"
-subtitle = "Notes from the margins."
-note = "Field notes, drafts, and technical margins arranged for slow browsing."
+subtitle = "日々のノート"
+note = "気ままに、残したいことを綴ります。"
 postsPerPage = 6
 # date-fns 使用的日期格式模板。
 dateFormat = "yyyy-MM-dd"
@@ -74,14 +81,14 @@ note = "Connected notes that can be followed in the order they were written."
 [config.pages.projects]
 title = "Projects"
 kicker = "Project shelf"
-subtitle = "Small tools and site systems."
-note = "A compact shelf for implementation choices, releases, and publishing experiments."
+subtitle = "授業や校務に役立つフリーソフト"
+note = "学習支援・教材作成・校務効率化のために公開しているツールを、ジャンル別に整理して紹介しています。"
 
 [config.pages.vibe]
 title = "vibe"
 kicker = ""
-subtitle = "Life and coding fragments."
-note = "Not formal enough for blog posts, but still part of the story."
+subtitle = "断片"
+note = "ブログ未満のつぶやき"
 showTrail = true
 
 [config.pages.media]
@@ -118,13 +125,13 @@ pageview = true
 comment = true
 
 [config.profile]
-name = "navfolio"
-handle = "@navfolio"
-role = "A Cat Developer"
-email = "hello@navfolio.site"
-website = "https://astro.navfolio.site/"
-github = "https://github.com/dodolalorc/astro-navfolio"
-avatar = "/images/logo-thin.webp"
+name = "ひらとも"
+handle = "@hiratomo-web"
+role = "Japanese Language Instructional Designer"
+email = "hello@example.com"
+website = "https://example.com"
+github = "https://github.com/your-username"
+avatar = "/files/title.gif"
 
 [[config.topNav.links]]
 label = "Home"
@@ -145,6 +152,7 @@ module = "vibe"
 [[config.topNav.links]]
 label = "Media"
 module = "media"
+disabled = true
 
 [[config.topNav.links]]
 label = "About"
@@ -154,21 +162,17 @@ href = "/about"
 
 [config.home.quote]
 text = [
-  "Navigate your world,",
-  "Showcase your story,",
-  "and keep everything in one place.",
+  "国語と文学とICTをつなぐ",
+  "ICTの力で、時間を創る",
 ]
 
 [config.home.intro]
-title = "here is navfolio"
-name = "navfolio"
+title = "ひらとも"
+name = "WEBへ"
 body = [
-  "The name combines \"Navigation\" and \"Portfolio\".",
-  "Navfolio prioritizes lightweight organization, seamless reading, and developer-friendly aesthetics.",
-  "It’s less a resume than a personal OS for your ideas, projects, notes, and online presence.",
-  "这个名字融合了“导航”与“作品集”。",
-  "Navfolio 专注于轻量级组织、流畅的阅读体验，以及对开发者友好的美学设计。",
-  "它不像一份简历，更像是一个属于你自己的个人操作系统——承载想法、项目、笔记与网络足迹。",
+  "20年以上にわたってniftyのホームページで紹介してきた、自作アプリですが、今回niftyのホームページサービスが改編、私の使ってきたサービスもなくなってしまいました。",
+  "今後はこちらで、国語の授業や、校務に関係した自作ソフトを中心に、紹介させていただきたいと思っています。",
+  "ちょっとしたプログラムばかりですが、何かのお役に立てたら、嬉しいです。",
 ]
 
 [config.home.latest]
@@ -181,44 +185,39 @@ dateArchiveBaseHref = ""
 
 [[config.home.navigation]]
 icon = "compass"
-title = "Portfolio"
-subtitle = "Selected work and case studies"
-href = "https://astro.navfolio.site/"
+title = "Projects"
+subtitle = "作品集"
+href = "/projects"
 
 [[config.home.navigation]]
 icon = "pen"
 title = "Blog"
-subtitle = "Essays, notes, and field reports"
+subtitle = "ブログ"
 href = "/blog"
 
 [[config.home.navigation]]
 icon = "briefcase"
-title = "Resume"
-subtitle = "Career profile and experience"
-href = "https://github.com/dodolalorc/navfolio"
+title = "Vectorの作者ページ"
+subtitle = "Vectorでの公開ソフト"
+href = "https://www.vector.co.jp/vpack/browse/person/an036268.html"
 
-[[config.home.navigation]]
-icon = "github"
-title = "Open Source"
-subtitle = "Code, experiments, and tools"
-href = "https://github.com/dodolalorc/astro-navfolio"
 
 [[config.home.links]]
 label = "GitHub"
 icon = "github"
-tooltip = "https://github.com/dodolalorc/astro-navfolio"
+tooltip = "https://github.com/Tom-Hirabayashi"
 copy = false
 
 [[config.home.links]]
 label = "LinkedIn"
 icon = "linkedin"
-tooltip = "https://www.linkedin.com/"
+tooltip = ""
 copy = false
 
 [[config.home.links]]
 label = "X"
 icon = "x"
-tooltip = "" # 留空会隐藏这个链接项。
+tooltip = ""
 copy = false
 
 [[config.home.links]]
@@ -230,61 +229,49 @@ copy = false
 [[config.home.links]]
 label = "Email"
 icon = "mail"
-tooltip = "hello@navfolio.site"
+tooltip = ""
 copy = true
 
 [[config.home.links]]
 label = "QQ"
 icon = "qq"
-tooltip = "123456789"
+tooltip = ""
 copy = true
 
 [[config.home.links]]
 label = "WeChat"
 icon = "wechat"
-tooltip = "navfolio"
+tooltip = ""
 copy = true
 
 [[config.home.links]]
 label = "Weibo"
 icon = "weibo"
-tooltip = "https://weibo.com/"
+tooltip = ""
 copy = false
 
 [[config.home.links]]
 label = "Xiaohongshu"
 icon = "xiaohongshu"
-tooltip = "https://www.xiaohongshu.com/"
+tooltip = ""
 copy = false
 
 [[config.home.links]]
 label = "Zhihu"
 icon = "zhihu"
-tooltip = "https://www.zhihu.com/"
+tooltip = ""
 copy = false
 
 [[config.home.links]]
 label = "Bilibili"
 icon = "bilibili"
-tooltip = "https://www.bilibili.com/"
+tooltip = ""
 copy = false
 
 [[config.home.doing]]
-text = "Shipping a personal dashboard template"
+text = "AIに訓点の付け方を丁寧に教えながら、白文と返り点だけで訓点付きの漢文を出力させるロジックを出力させました。人間に教える方がラクです。→Project 訓点工房"
 mark = "01"
 
 [[config.home.doing]]
-text = "Writing reusable notes for future projects"
+text = "Astroというフレームワークを使って、このページを作っています。テンプレートはnavfolioというのを使わせてもらっています。まだまだ構築中です。"
 mark = "02"
-
-[[config.home.doing]]
-text = "Improving static-site publishing workflow"
-mark = "03"
-
-[[config.home.doing]]
-text = "Collecting useful developer resources"
-mark = "04"
-
-[[config.home.doing]]
-text = "Exploring small open-source ideas"
-mark = "05"

@@ -1,0 +1,104 @@
+{
+  "locale": "ja",
+  "doing": {
+    "recently": "最近の活動"
+  },
+  "heatmap": {
+    "totalPosts": "記事数",
+    "activeDays": "活動日数",
+    "dayStreak": "連続日数",
+    "latest": "最新",
+    "latestPublishedPosts": "最新の公開記事",
+    "openLatestPost": "最新の記事を開く: {title}",
+    "less": "少",
+    "more": "多",
+    "weekdays": ["月", "水", "金"],
+    "writingSince": "{date} 以降の執筆状況",
+    "recentWeeks": "直近 {weeks} 週間の執筆状況",
+    "upcoming": "公開予定",
+    "postCount": {
+      "other": "{count} 件の記事"
+    }
+  },
+  "groups": {
+    "categories": "カテゴリ",
+    "series": "シリーズ",
+    "category": "カテゴリ",
+    "tag": "タグ",
+    "tags": "タグ",
+    "years": "年別",
+    "back": "戻る",
+    "allArticles": "すべての記事",
+    "uncategorized": "未分類",
+    "expand": "展開",
+    "collapse": "折りたたむ",
+    "browseByTopic": "トピックから探す",
+    "followConnectedNotes": "関連するノートをたどる",
+    "blogBrowsingGroups": "ブログ閲覧グループ",
+    "emptyCategories": "まだカテゴリが追加されていません。",
+    "emptySeries": "まだシリーズが追加されていません。",
+    "emptyTags": "まだタグが追加されていません。",
+    "emptyArchives": "アーカイブできる記事はまだありません。",
+    "tagCloud": "タグクラウド",
+    "tagCloudKicker": "タグ一覧",
+    "tagCloudNote": "記事内容から育ったキーワードマップです。大きさ、太さ、色は記事数に応じて変わります。",
+    "yearArchives": "年別アーカイブ",
+    "yearArchivesKicker": "年別アーカイブ",
+    "yearArchivesNote": "公開年ごとに記事を一覧できます。表示するのはタイトル、日付、先頭のタグのみです。",
+    "articleCount": {
+      "other": "{count} 件の記事"
+    },
+    "categoryNote": "このトピックの記事 {count} 件。",
+    "seriesNote": "読む順番の記事 {count} 件。",
+    "tagNote": "このタグの記事 {count} 件。",
+    "publishedCount": "公開済み {count} 件",
+    "publishedArticles": {
+      "other": "公開済み記事 {count} 件"
+    },
+    "viewMore": "さらに {count} 件見る"
+  },
+  "article": {
+    "metadata": "記事情報",
+    "groups": "記事グループ",
+    "readingTools": "閲覧ツール",
+    "wordCount": "{count} 文字",
+    "readingTime": "約 {minutes} 分",
+    "moreInSeries": "{name} の続きを読む",
+    "previousInSeries": "{name} の前の記事",
+    "nextInSeries": "{name} の次の記事",
+    "pinned": "固定表示",
+    "moreFromSite": "{siteTitle} の他の記事"
+  },
+  "toc": {
+    "title": "目次",
+    "open": "目次を開く",
+    "close": "目次を閉じる",
+    "expand": "目次を展開",
+    "collapse": "目次を折りたたむ",
+    "showAll": "すべて表示",
+    "collapseButton": "折りたたむ"
+  },
+  "pagination": {
+    "blog": "ブログのページ送り",
+    "previous": "前へ",
+    "next": "次へ",
+    "page": "{total} ページ中 {current} ページ"
+  },
+  "search": {
+    "title": "検索",
+    "trigger": "サイトを検索",
+    "close": "検索を閉じる",
+    "idle": "検索語を入力してください。",
+    "loading": "検索中...",
+    "empty": "記事が見つかりませんでした。",
+    "unavailable": "検索インデックスはまだ利用できません。先に本番ビルドを実行してください。",
+    "resultKinds": {
+      "blogNote": "ブログ記事",
+      "blogIndex": "ブログ一覧",
+      "vibe": "雰囲気",
+      "project": "プロジェクト",
+      "page": "ページ"
+    },
+    "matchedPassage": "一致した箇所"
+  }
+}

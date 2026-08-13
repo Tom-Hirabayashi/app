@@ -297,3 +297,8 @@ Navfolio is meant to feel like a calm developer notebook:
 - no visual noise around long-form reading.
 
 If this starter helps you, a star on the repository is warmly appreciated: <https://github.com/dodolalorc/astro-navfolio>.
+
+## License and Attribution
+
+This project is based on astro-navfolio and is distributed under the MIT License.
+When publishing or redistributing, keep the LICENSE file and its copyright notice.

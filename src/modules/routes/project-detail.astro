@@ -1,5 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
+import { ExternalLink, Github } from 'lucide-astro';
 import BlogArticle from '../../layouts/BlogArticle.astro';
 
 export async function getStaticPaths() {
@@ -20,5 +21,56 @@ const { Content, headings } = await render(project);
   headings={headings}
   sidebar={{ enable: false, ...project.data.sidebar }}
 >
+  {
+    project.data.links.length > 0 && (
+      <section class="project-action-links" aria-label="プロジェクトリンク">
+        {project.data.links.map((link) => (
+          <a class="project-action-link" href={link.href} target="_blank" rel="noopener noreferrer">
+            {link.kind === 'github' ? (
+              <Github size={16} strokeWidth={1.9} aria-hidden="true" />
+            ) : (
+              <ExternalLink size={16} strokeWidth={1.9} aria-hidden="true" />
+            )}
+            <span>{link.label}</span>
+          </a>
+        ))}
+      </section>
+    )
+  }
+
   <Content />
 </BlogArticle>
+
+<style>
+  .project-action-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 18px;
+  }
+
+  .project-action-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid var(--paper-line);
+    border-radius: 999px;
+    background: var(--paper-control);
+    color: var(--paper-ink);
+    font-family: var(--font-ui-label);
+    font-size: 0.86rem;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+      border-color 160ms ease,
+      color 160ms ease,
+      background 160ms ease;
+  }
+
+  .project-action-link:hover {
+    border-color: var(--paper-accent);
+    background: var(--paper-control-hover);
+    color: var(--paper-accent);
+  }
+</style>
