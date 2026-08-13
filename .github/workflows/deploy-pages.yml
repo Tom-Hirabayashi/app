@@ -55,8 +55,8 @@ jobs:
 
       - name: Build site
         env:
-          SITE_URL: https://astro.navfolio.site
-          SITE_BASE: /
+          SITE_URL: https://tom-hirabayashi.github.io/app/
+          SITE_BASE: /app/
           NAVFOLIO_COMMENTS_ENABLED: ${{ vars.NAVFOLIO_COMMENTS_ENABLED }}
           NAVFOLIO_COMMENTS_PROVIDER: ${{ vars.NAVFOLIO_COMMENTS_PROVIDER }}
           NAVFOLIO_GISCUS_REPO: ${{ vars.NAVFOLIO_GISCUS_REPO }}

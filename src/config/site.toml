@@ -3,8 +3,8 @@ title = "ひらともWEB"
 description = "国語や学校で役立つフリーソフト"
 pageTitle = "ひらともWEB"
 pageDescription = "国語や学校で役立つフリーソフト"
-url = "https://astro.navfolio.site"
-repository = "https://github.com/dodolalorc/astro-navfolio"
+url = "https://tom-hirabayashi.github.io/app/"
+repository = "https://github.com/Tom-Hirabayashi/app"
 footerNote = "powered by Astro navfolio"
 
 [config.theme]
@@ -129,8 +129,8 @@ name = "ひらとも"
 handle = "@hiratomo-web"
 role = "Japanese Language Instructional Designer"
 email = "hello@example.com"
-website = "https://example.com"
-github = "https://github.com/your-username"
+website = "https://tom-hirabayashi.github.io/app/"
+github = "https://github.com/Tom-Hirabayashi"
 avatar = "/files/title.gif"
 
 [[config.topNav.links]]
