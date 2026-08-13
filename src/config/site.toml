@@ -159,7 +159,18 @@ label = "About"
 href = "/about"
 
 [config.home]
-links = []
+
+[[config.home.links]]
+label = "GitHub"
+icon = "github"
+tooltip = "https://github.com/Tom-Hirabayashi"
+copy = false
+
+[[config.home.links]]
+label = "RSS"
+icon = "rss"
+tooltip = "/rss.xml"
+copy = false
 
 [config.home.quote]
 text = [
