@@ -22,6 +22,7 @@ const {
   dateArchiveBaseHref,
   startDate,
 } = Astro.props;
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const posts = await getCollection('blog', ({ data }) => !excludeDraft || !data.draft);
 const heatmap = createRecentBlogHeatmap(posts, weeks, latestCount, startDate);
 const ui = getUiText(await getSiteConfig());
@@ -54,6 +55,11 @@ function getDayHref(day: HeatmapDay) {
 
   return day.posts[0]?.href;
 }
+
+function withBase(href: string | undefined) {
+  if (!href) return undefined;
+  return `${basePath}${href.startsWith('/') ? href : `/${href}`}`;
+}
 ---
 
 <article class="glass-card heatmap-card">
@@ -80,7 +86,7 @@ function getDayHref(day: HeatmapDay) {
           {heatmap.latestPosts.map((post) => (
             <a
               class="latest-link"
-              href={post.href}
+              href={withBase(post.href)}
               aria-label={ui.heatmap.openLatestPost(post.title)}
             >
               <em>{post.title}</em>
@@ -107,7 +113,7 @@ function getDayHref(day: HeatmapDay) {
             return <span class="heatmap-cell future-cell" aria-hidden="true" />;
           }
 
-          const href = getDayHref(day);
+          const href = withBase(getDayHref(day));
           const content = (
             <span
               class={`heatmap-cell level-${day.level}`}
