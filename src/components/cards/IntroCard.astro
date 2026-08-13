@@ -30,7 +30,9 @@ const { intro, quote } = Astro.props as { intro: Intro; quote?: Quote };
     {
       quote && (
         <blockquote>
-          {quote.text.map((line, index) => <span>{index === 0 ? `- ${line}` : line}</span>)}
+          {quote.text.map((line, index) => (
+            <span>{index === 0 ? `- ${line}` : line}</span>
+          ))}
         </blockquote>
       )
     }
