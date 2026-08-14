@@ -174,8 +174,10 @@ copy = false
 
 [config.home.quote]
 text = [
+  "ひらとものフリーソフト",
   "国語と文学とICTをつなぐ",
-  "ICTの力で、時間を創る",
+  "ICTの力で、時間を創る"
+ 
 ]
 
 [config.home.intro]
