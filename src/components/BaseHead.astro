@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from 'astro';
 import ThemeBaseHead from '@navfolio/theme-default/components/BaseHead.astro';
-import FallbackImage from '../assets/figure/fail-loading-image.png';
+import DefaultOgImage from '../assets/figure/og-image.png';
 import { getSiteConfig } from '../data/site';
 import '../styles/global.css';
 
@@ -19,7 +19,7 @@ const { site, fonts } = await getSiteConfig();
   title={title}
   description={description}
   image={image}
-  fallbackImage={FallbackImage}
+  fallbackImage={DefaultOgImage}
   site={site}
   fonts={fonts}
 />
