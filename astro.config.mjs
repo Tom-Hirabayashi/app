@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import mdx from '@astrojs/mdx';
+import { unified } from '@astrojs/markdown-remark';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import { parse } from 'smol-toml';
@@ -67,13 +68,19 @@ export default defineConfig({
   site: resolvedSite,
   base: resolvedBase,
   markdown: {
-    remarkPlugins: astroPluginConfig.remarkPlugins,
-    rehypePlugins: astroPluginConfig.rehypePlugins,
+    processor: unified({
+      remarkPlugins: astroPluginConfig.remarkPlugins,
+      rehypePlugins: astroPluginConfig.rehypePlugins,
+    }),
   },
   integrations: [...astroPluginConfig.integrations, mdx(), sitemap()],
 
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Mermaid is an on-demand renderer and is not part of the initial page bundle.
+      chunkSizeWarningLimit: 700,
+    },
     resolve: {
       alias: {
         'virtual:navfolio/page-runtime': fileURLToPath(

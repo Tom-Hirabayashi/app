@@ -9,6 +9,7 @@ import { getSiteConfig } from '../../data/site';
 import navfolioConfig from '../../../navfolio.config';
 import { getPageModuleRoute } from '../../plugins/config';
 import { slugifyGroupName } from '../../utils/content-groups';
+import { getHtmlLang } from '../../utils/ui-text';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects', ({ id, data }) => id !== 'index' && !data.draft);
@@ -39,13 +40,14 @@ const projects = [...unsortedProjects].sort(
 );
 const siteConfig = await getSiteConfig();
 const { site, theme } = siteConfig;
+const htmlLang = getHtmlLang(siteConfig);
 const projectsRoute = getPageModuleRoute(navfolioConfig, 'projects');
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const withBase = (path: string) => `${basePath}${path}`;
 ---
 
 <!doctype html>
-<html lang={siteConfig.site.language} data-palette={theme.palette}>
+<html lang={htmlLang} data-palette={theme.palette}>
   <head>
     <BaseHead title={`#${name} | ${site.title}`} description={`${name}のプロジェクト一覧`} />
   </head>

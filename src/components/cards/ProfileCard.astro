@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import titleImage from '../../assets/figure/title.webp';
 import Icon from '../Icon.astro';
 
 interface Profile {
@@ -14,15 +15,15 @@ interface Profile {
 const { profile } = Astro.props as { profile: Profile };
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 const avatarSrc = `${basePath}${profile.avatar}`;
+const optimizedAvatar = profile.avatar === '/files/title.gif' ? titleImage : avatarSrc;
 ---
 
 <article class="profile-card">
   <div class="avatar-wrap">
     <Image
-      src={avatarSrc}
+      src={optimizedAvatar}
       alt={`${profile.name} GitHub avatar`}
-      width="176"
-      height="176"
+      width={176}
       loading="eager"
     />
   </div>

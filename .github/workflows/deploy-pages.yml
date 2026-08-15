@@ -36,6 +36,12 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Check formatting and lint
+        run: bun run format:check
+
+      - name: Run tests
+        run: bun run test
+
       - name: Sync friend circle
         if: ${{ vars.NAVFOLIO_FRIEND_CIRCLE_ENABLED == 'true' && vars.NAVFOLIO_FRIEND_LINKS_SRC != '' }}
         uses: navfolio/friend-circle-sync@main
