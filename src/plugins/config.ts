@@ -63,6 +63,11 @@ function createPageModuleRoutesIntegration(
               entrypoint: new URL('../modules/routes/project-detail.astro', import.meta.url),
               prerender: true,
             });
+            injectRoute({
+              pattern: `${module.route}/tags/[tag]`,
+              entrypoint: new URL('../modules/routes/project-tag.astro', import.meta.url),
+              prerender: true,
+            });
           }
         }
       },
