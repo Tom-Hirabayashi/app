@@ -441,10 +441,16 @@ const siteConfig = defineCollection({
       navigation: z.array(navigationItemSchema),
       links: z.array(homeLinkSchema).optional().default([]),
       doing: z.array(
-        z.object({
-          text: z.string(),
-          mark: z.string(),
-        }),
+        z
+          .object({
+            text: z.string(),
+            mark: z.string(),
+            linkLabel: z.string().optional(),
+            href: z.string().optional(),
+          })
+          .refine((item) => Boolean(item.linkLabel) === Boolean(item.href), {
+            message: 'linkLabel and href must be specified together.',
+          }),
       ),
     }),
   }),

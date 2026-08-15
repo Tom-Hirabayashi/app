@@ -1,15 +1,17 @@
 ---
 import Icon from '../Icon.astro';
-import { getSiteConfig } from '../../data/site';
+import { getSiteConfig, type HomeDoingItem } from '../../data/site';
 import { getUiText } from '../../utils/ui-text';
 
-interface DoingItem {
-  text: string;
-  mark: string;
-}
-
-const { items } = Astro.props as { items: DoingItem[] };
+const { items } = Astro.props as { items: HomeDoingItem[] };
 const ui = getUiText(await getSiteConfig());
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+function resolveHref(href: string) {
+  return /^(?:[a-z][a-z\d+.-]*:|#)/i.test(href)
+    ? href
+    : `${basePath}${href.startsWith('/') ? href : `/${href}`}`;
+}
 ---
 
 <article class="glass-card doing-card">
@@ -18,7 +20,14 @@ const ui = getUiText(await getSiteConfig());
     {
       items.map((item) => (
         <li>
-          <span>{item.text}</span>
+          <span class="doing-copy">
+            <span>{item.text}</span>
+            {item.href && item.linkLabel && (
+              <a href={resolveHref(item.href)}>
+                <span aria-hidden="true">→</span> {item.linkLabel}
+              </a>
+            )}
+          </span>
           <strong aria-hidden="true">{item.mark}</strong>
         </li>
       ))
@@ -88,5 +97,17 @@ const ui = getUiText(await getSiteConfig());
   strong {
     font-size: 0.82rem;
     text-align: right;
+  }
+
+  .doing-copy a {
+    display: inline;
+    margin-left: 0.45em;
+    color: var(--paper-accent);
+    font-weight: 700;
+    text-underline-offset: 0.2em;
+  }
+
+  .doing-copy a:hover {
+    color: var(--paper-ink);
   }
 </style>

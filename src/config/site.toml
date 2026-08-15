@@ -217,8 +217,10 @@ href = "https://www.vector.co.jp/vpack/browse/person/an036268.html"
 
 
 [[config.home.doing]]
-text = "AIに訓点の付け方を丁寧に教えながら、白文と返り点だけで訓点付きの漢文を出力させるロジックを出力させました。人間に教える方がラクです。→Project 訓点工房"
+text = "AIに訓点の付け方を丁寧に教えながら、白文と返り点だけで訓点付きの漢文を出力させるロジックを出力させました。人間に教える方がラクです。"
 mark = "01"
+linkLabel = "Project 訓点工房"
+href = "/projects/kunten-kobo-trial/"
 
 [[config.home.doing]]
 text = "Astroというフレームワークを使って、このページを作っています。テンプレートはnavfolioというのを使わせてもらっています。まだまだ構築中です。"
