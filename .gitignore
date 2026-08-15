@@ -24,7 +24,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# local AI agent instructions and context
 AGENTS.md
+.agents/
 
 # generated font files
 scripts/fonts/ui-chars.txt

@@ -54,8 +54,7 @@ const blogArticleSchema = (context: Parameters<CollectionSchemaFactory>[0]) =>
     sticky: z.union([z.boolean(), z.number().positive()]).optional().default(false),
   });
 
-const contentSource = process.env.NAVFOLIO_CONTENT_SOURCE === 'docs' ? 'docs' : 'content';
-const contentBase = contentSource === 'docs' ? './src/docs' : './src/content';
+const contentBase = './src/content';
 const projectsModuleEnabled = isPageModuleEnabled(navfolioConfig, 'projects');
 const vibeModuleEnabled = isPageModuleEnabled(navfolioConfig, 'vibe');
 const mediaModuleEnabled = isPageModuleEnabled(navfolioConfig, 'media');
@@ -463,7 +462,24 @@ const about = defineCollection({
 });
 
 const projects = defineCollection({
-  loader: glob({ base: `${contentBase}/projects`, pattern: '**/*.{md,mdx}' }),
+  loader: glob({
+    base: `${contentBase}/projects`,
+    pattern: '**/*.{md,mdx}',
+    generateId: ({ entry, data }) => {
+      if (typeof data.slug === 'string') return data.slug;
+
+      const entryPath = entry.replace(/\.(md|mdx)$/, '');
+      const pathParts = entryPath.split('/');
+      const filename = pathParts.at(-1);
+      const parentDirectory = pathParts.at(-2);
+
+      if (pathParts.length > 1 && (filename === 'index' || filename === parentDirectory)) {
+        return pathParts.slice(0, -1).join('/');
+      }
+
+      return entryPath || 'index';
+    },
+  }),
   schema: (context) =>
     articleSchema(context).extend({
       sticky: z.union([z.boolean(), z.number().positive()]).optional().default(false),

@@ -7,7 +7,6 @@ Navfolio is an Astro starter for personal publishing, project display, lightweig
 ## Project Structure
 
 - `astro-navfolio` is the main template repository.
-- `src/docs` is a git submodule for the documentation/demo content repository.
 - `@navfolio/plugin-markdown` owns Markdown and MDX rendering extensions.
 - `@navfolio/pages` is the unified page-module entry.
 - `@navfolio/page-projects` is the default page module; `@navfolio/page-vibe` is
@@ -37,16 +36,6 @@ Typos, broken links, and small documentation fixes can go straight to a PR.
 - Update docs when behavior, configuration, scripts, page modules, or plugin usage changes.
 - Include screenshots or short screen recordings for visible UI changes, including mobile when relevant.
 
-## Content And Docs
-
-The documentation site is mounted through the `src/docs` submodule. When docs content changes:
-
-1. Commit and push the docs submodule first.
-2. Update the submodule pointer in `astro-navfolio`.
-3. Run `bun run docs:build` from the main repository.
-
-Use demo content that explains Navfolio itself. Avoid long sample articles that distract from template usage unless they demonstrate a specific feature.
-
 ## Local Checks
 
 The production build requires Python 3, FontTools, and Brotli to generate the CJK UI font subset. Install them in a project-local virtual environment before running build checks; the script automatically uses `.venv`, so activation is not required.
@@ -72,13 +61,6 @@ bun run build
 bun run format:check
 ```
 
-For docs/demo content:
-
-```sh
-bun run docs:build
-bun run docs:dev
-```
-
 Run `bun install` only when dependencies are missing or changed. For meaningful code, route, schema, config, plugin, or page-module changes, run `bun run build` before submitting.
 
 ## Review
@@ -94,7 +76,6 @@ Navfolio 是一个基于 Astro 的个人发布、项目展示、轻量笔记和�
 ## 项目结构
 
 - `astro-navfolio` 是博客模板主仓库。
-- `src/docs` 是文档站和演示内容的 git 子仓库。
 - `@navfolio/plugin-markdown` 负责 Markdown 和 MDX 渲染扩展。
 - `@navfolio/pages` 是统一的页面模块入口。
 - `@navfolio/page-projects` 是默认页面模块；`@navfolio/page-vibe` 是可选包，负责并注入自己的 Vibe 页面 UI。
@@ -123,16 +104,6 @@ Navfolio 是一个基于 Astro 的个人发布、项目展示、轻量笔记和�
 - 行为、配置、脚本、页面模块或插件用法变化时，请同步更新文档。
 - UI 改动请附截图或简短录屏；涉及移动端时也要覆盖移动端。
 
-## 内容与文档
-
-文档站通过 `src/docs` 子仓库挂载。修改文档内容时：
-
-1. 先在 docs 子仓库提交并推送。
-2. 再在 `astro-navfolio` 中更新子仓库指针。
-3. 在主仓库运行 `bun run docs:build`。
-
-演示内容应优先解释 Navfolio 本身。除非是为了展示特定功能，否则不要加入会分散注意力的长篇示例文章。
-
 ## 本地检查
 
 生产构建依赖 Python 3、FontTools 和 Brotli 来生成中日韩 UI 字体子集。请在运行构建检查前将它们安装到项目虚拟环境中；无需激活虚拟环境，脚本会自动使用 `.venv`。
@@ -156,13 +127,6 @@ bun install
 bun run dev
 bun run build
 bun run format:check
-```
-
-文档站和演示内容：
-
-```sh
-bun run docs:build
-bun run docs:dev
 ```
 
 只有依赖缺失或发生变化时才需要运行 `bun install`。涉及代码、路由、schema、配置、插件或页面模块的有效改动，提交前请运行 `bun run build`。

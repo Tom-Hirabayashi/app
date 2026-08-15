@@ -79,7 +79,10 @@ const templateContext = {
   date: isoDate.slice(0, 10),
 } satisfies NavfolioScaffoldTemplateContext;
 const outputDirectory = outputDirectoryArg ?? scaffold.directory;
-const relativePath = path.join(outputDirectory, `${slug}.${extension}`);
+const relativePath =
+  scaffold.collection === 'projects'
+    ? path.join(outputDirectory, slug, `${slug}.${extension}`)
+    : path.join(outputDirectory, `${slug}.${extension}`);
 const targetPath = path.resolve(relativePath);
 
 if (existsSync(targetPath)) {
