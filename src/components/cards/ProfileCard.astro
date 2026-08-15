@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Icon from '../Icon.astro';
 
 interface Profile {
@@ -17,7 +18,7 @@ const avatarSrc = `${basePath}${profile.avatar}`;
 
 <article class="profile-card">
   <div class="avatar-wrap">
-    <img
+    <Image
       src={avatarSrc}
       alt={`${profile.name} GitHub avatar`}
       width="176"
